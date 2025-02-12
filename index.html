@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💌 To My Love, a virtual gift</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:wght@500&family=Special+Elite&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://www.transparenttextures.com/patterns/old-paper.png'), linear-gradient(to bottom, #e6ccb2, #ddb892);
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .envelope {
+            position: relative;
+            width: 480px;
+            height: 340px;
+            background: #f5e0c7;
+            border-radius: 4px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.4s ease-in-out;
+            border: 6px solid #8b5e3b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://www.transparenttextures.com/patterns/crumpled-paper.png');
+        }
+
+        .flap {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #b68d60, #8b5e3b);
+            border-radius: 6px 6px 0 0;
+            transition: transform 0.5s ease-in-out;
+            transform-origin: top center;
+        }
+
+        .seal {
+            position: absolute;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle, #5a3730, #3a1d1a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Special Elite', cursive;
+            font-size: 22px;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            border: 4px solid #3a1d1a;
+            box-shadow: inset 3px 3px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .seal::after {
+            content: 'AIZAN';
+            position: absolute;
+            top: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .envelope-text {
+            position: absolute;
+            bottom: 30px;
+            font-size: 22px;
+            font-family: 'Dancing Script', cursive;
+            color: #5a3e36;
+            font-style: italic;
+        }
+
+        .letter {
+            position: absolute;
+            width: 95%;
+            height: 470px;
+            background: #fff8e1;
+            padding: 30px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #5a3e36;
+            text-align: left;
+            overflow-y: auto;
+            font-family: 'Special Elite', serif;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.6s ease-in-out, transform 0.9s ease-in-out;
+        }
+
+        .bold {
+            font-weight: bold;
+            color: #8b5e3b;
+        }
+
+        .signature {
+            margin-top: 15px;
+            font-style: italic;
+            color: #8b5e3b;
+            text-align: right;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .envelope.open .flap {
+            transform: rotateX(180deg);
+        }
+
+        .envelope.open .seal {
+            transform: scale(0);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .envelope.open .letter {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.6);
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="envelope" onclick="openLetter()">
+            <div class="flap"></div>
+            <div class="seal"></div>
+            <div class="envelope-text">Sealed with love</div>
+            <div class="letter">
+                <p><span class="bold">My Love,</span></p>
+                <p>
+                    There is no distance that can extinguish the love I feel for you.  
+                    I wanted to send you a physical gift, but the distance didn't allow it.  
+                    So here is this little corner of digital love, where I have placed all my heart.  
+                    <br><br>
+
+                    **If we share moments of joy, we must also be mutual relief.**  
+                    I want us to be **the refuge in the storm, the peace in the middle of chaos.**  
+                    That when the world hurts, your chest is my rest, and mine, yours.  
+                    **Because love is not just passion, it's being the medicine for each other's soul.**  
+                    <br><br>
+
+                    I imagine our walks by the beach, feeling the breeze and the warmth of your hand in mine.  
+                    I close my eyes and see our future, full of love, laughter, and shared dreams.  
+                    <br><br>
+
+                    I love you beyond words, beyond distance.  
+                    <br><br>
+                </p>
+                <p class="signature">With all my love, <br> <span class="bold">AIZAN</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="watermark">DON'T COPY MY FLOW👺👅</div>
+
+    <script>
+        function openLetter() {
+            document.querySelector('.envelope').classList.add('open');
+        }
+    </script>
+</body>
+</html>
